@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>埃尔派 · 在线客服测试</title>
+<style>
+  /* Hallmark · alpa-chat-test · 2026-11-23 */
+  :root{
+    --ink:#111214;
+    --ink-2:#545a60;
+    --ink-3:#6b7278;
+    --line:#e3e6e9;
+    --bg:#ffffff;
+    --bg-2:#f7f8f9;
+    --accent:#0f5c4a;
+    --on-dark:#f7f7f5;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:clip}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+  header{border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-size:15px;font-weight:600;letter-spacing:.02em}
+  .brand span{color:var(--ink-3);font-weight:400;margin-left:8px}
+  .tag{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+  .hero{padding:72px 0 64px;border-bottom:1px solid var(--line)}
+  h1{
+    font-size:clamp(34px,6vw,56px);
+    line-height:1.12;
+    letter-spacing:-0.02em;
+    font-weight:600;
+    margin:0 0 20px;
+  }
+  .lede{font-size:17px;color:var(--ink-2);max-width:34em;margin:0}
+  .cta{
+    display:inline-flex;align-items:center;gap:10px;
+    margin-top:32px;padding:14px 26px;
+    background:var(--ink);color:var(--on-dark);border:0;border-radius:2px;
+    font:inherit;font-size:15px;font-weight:500;cursor:pointer;
+    transition:opacity .15s;
+  }
+  .cta:hover{opacity:.85}
+  .cta:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .cta svg{width:16px;height:16px}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:15px;font-weight:600;color:var(--ink);margin:0 0 20px}
+
+  .tests{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:0}
+  .tests > div{background:var(--bg);padding:18px 20px;display:flex;gap:16px;align-items:baseline}
+  .tests b{font-weight:500;flex:1;font-size:15px}
+  .tests em{font-style:normal;font-size:12px;color:var(--ink-3);white-space:nowrap}
+
+  .note{background:var(--bg-2);padding:20px 24px;border-left:2px solid var(--accent);margin:0;font-size:14px;color:var(--ink-2)}
+  .note strong{color:var(--ink);font-weight:600}
+
+  ol.how{margin:0;padding-left:20px;color:var(--ink-2);font-size:15px}
+  ol.how li{margin-bottom:10px}
+
+  footer{padding:40px 0 120px;color:var(--ink-3);font-size:13px}
+  footer a{color:inherit}
+
+  /* widget 在手机上会占右下角，给它留出空间 */
+  @media (max-width:520px){
+    .hero{padding:52px 0 44px}
+    .tests > div{flex-direction:column;gap:6px}
+    footer{padding-bottom:160px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">埃尔派<span>ALPA</span></div>
+    <div class="tag">内部测试页</div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>在线客服<br>内部测试</h1>
+    <p class="lede">这个页面接的是 AI 客服，知识库来自产品手册与官网常见问题。请把右下角的对话窗口当成真实客户来提问。</p>
+    <button class="cta" id="open">
+      打开对话框
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>建议这样测</h2>
+    <div class="tests">
+      <div><b>“交期多久？”</b><em>应回答 60 天出厂</em></div>
+      <div><b>“多长时间能交货？”</b><em>换个说法，答案应一致</em></div>
+      <div><b>“保修多久？”</b><em>应回答整机质保一年</em></div>
+      <div><b>“怎么选粉碎设备？”</b><em>应反问物料、粒度、产能、工艺</em></div>
+      <div><b>“给过宁德时代供货吗？”</b><em>应诚实说不确定，不要编</em></div>
+    </div>
+    <p class="note" style="margin-top:24px">
+      <strong>怎么判断它靠不靠谱：</strong>答案对得上手册就是合格；答不上时明确说“无法确定并转人工”也算合格；只有<strong>编造出不存在的事实</strong>才是问题；那种请单独记下来反馈。
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>反馈要记的四件事</h2>
+    <ol class="how">
+      <li>你问了什么（原话，不要润色）</li>
+      <li>它答了什么（截图最快）</li>
+      <li>你觉得对 / 错 / 编造 / 答非所问</li>
+      <li>如果知道正确答案，写上正确说法</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    内部测试页面，请勿外传。AI 回答仅供参考，正式报价与方案以书面合同为准。
+  </div>
+</footer>
+
+<script>
+  window.ContactWidgetOnReady = function () {
+    // SDK 就绪后把主按钮接上
+    document.getElementById('open').onclick = function () {
+      if (window.contactWidget && window.contactWidget.showChat) window.contactWidget.showChat();
+    };
+  };
+  document.getElementById('open').onclick = function () {
+    if (window.contactWidget && window.contactWidget.showChat) window.contactWidget.showChat();
+  };
+</script>
+<script src="https://trtc.io/knocket-sdk/sdk.js?identifier=7d56bb1aa3c81f0206&v=1795414130144" async></script>
+</body>
+</html>
